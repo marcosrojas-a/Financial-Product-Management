@@ -10,18 +10,6 @@ Desarrollado con **Java + Spring Boot + Angular** siguiendo **Arquitectura Hexag
 
 ---
 
-![Java]
-
-![Spring]
-
-![Angular]
-![PostgreSQL]
-![Docker]
-![JUnit]
-![Architecture]
-</div>
-
----
 
 # 📖 Descripción general:
 
