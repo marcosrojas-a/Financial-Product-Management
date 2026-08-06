@@ -10,25 +10,20 @@ Desarrollado con **Java + Spring Boot + Angular** siguiendo **Arquitectura Hexag
 
 ---
 
-![Java](https://img.shields.io/badge/Java-21-red?logo=openjdk)
+![Java]
 
-![Spring](https://img.shields.io/badge/SpringBoot-3.x-6DB33F?logo=springboot)
+![Spring]
 
-![Angular](https://img.shields.io/badge/Angular-20-red?logo=angular)
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-blue?logo=postgresql)
-
-![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker)
-
-![JUnit](https://img.shields.io/badge/JUnit-5-green)
-
-![Architecture](https://img.shields.io/badge/Architecture-Hexagonal-orange)
-
+![Angular]
+![PostgreSQL]
+![Docker]
+![JUnit]
+![Architecture]
 </div>
 
 ---
 
-# 📖 Overview
+# 📖 Descripción general:
 
 Este proyecto corresponde a una prueba técnica cuyo objetivo consiste en desarrollar un sistema para administrar clientes, productos financieros y movimientos bancarios aplicando buenas prácticas de ingeniería de software.
 
@@ -165,37 +160,6 @@ Entre las principales reglas implementadas se encuentran:
 
 ---
 
-# ▶ Ejecución
-
-## Backend
-
-```bash
-mvn clean install
-mvn spring-boot:run
-```
-
-## Frontend
-
-```bash
-npm install
-ng serve
-```
-
-## Docker
-
-```bash
-docker compose up --build
-```
-
----
-
-# 🧪 Testing
-
-```bash
-mvn test
-```
-
----
 
 # 👨‍💻 Autor
 
