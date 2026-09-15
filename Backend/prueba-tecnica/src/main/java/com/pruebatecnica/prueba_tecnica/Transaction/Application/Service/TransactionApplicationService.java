@@ -9,9 +9,11 @@ import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementR
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementTypeRepositoryPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.TransferRepositoryPort;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+@Service
 public class TransactionApplicationService implements RegisterConsignmentPort, RegisterWithdrawalPort, RegisterTransferPort {
 
     private final FinancialProductOperationPort financialProductOperationPort;

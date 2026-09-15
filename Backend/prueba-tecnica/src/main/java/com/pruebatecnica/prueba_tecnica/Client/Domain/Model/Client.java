@@ -100,4 +100,9 @@ public class Client extends AuditableEntity
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public void setEmail(String email) {
+        validateEmail(email);
+        this.email = email;
+    }
 }

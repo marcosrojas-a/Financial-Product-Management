@@ -3,5 +3,7 @@ package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
 import com.pruebatecnica.prueba_tecnica.shared.Domain.Port.Input.CreateUseCase;
 
-public interface RegisterConsignmentPort  extends CreateUseCase<RegisterConsignmentCommand, Movement> {
+public interface RegisterConsignmentPort {
+
+    Movement execute(RegisterConsignmentCommand command);
 }
