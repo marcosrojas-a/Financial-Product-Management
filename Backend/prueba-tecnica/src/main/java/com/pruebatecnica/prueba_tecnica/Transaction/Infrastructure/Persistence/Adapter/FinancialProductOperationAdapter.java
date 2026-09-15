@@ -1,13 +1,15 @@
-package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Adapter.Output;
+package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Persistence.Adapter;
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.FinancialProduct;
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Output.FinancialProductRepositoryPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.MovementType;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.FinancialProductOperationPort;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class FinancialProductOperationAdapter implements FinancialProductOperationPort {
 
     private final FinancialProductRepositoryPort financialProductRepositoryPort;
