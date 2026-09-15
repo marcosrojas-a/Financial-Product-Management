@@ -3,6 +3,7 @@ package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Persistence.
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.MovementType;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Persistence.Entity.MovementEntity;
+import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Persistence.Repository.MovementTypeJpaRepository;
 import org.springframework.stereotype.Component;
 
 @Component
