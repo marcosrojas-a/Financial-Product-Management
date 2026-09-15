@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FinancialProductRepositoryPort extends ReadRepositoryPort<FinancialProduct, Long>, WriteRepositoryPort<FinancialProduct> {
+
     Optional<FinancialProduct> findByAccountNumber(String accountNumber);
+
     List<FinancialProduct> findByClientId(Long clientId);
+
     boolean existsActiveByClientId(Long clientId);
 }

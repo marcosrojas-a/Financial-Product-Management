@@ -15,8 +15,16 @@ public class CreateFinancialProductCommand {
         this.exemptGmf = exemptGmf;
     }
 
-    public Long getClientId() { return clientId; }
-    public Long getProductTypeId() { return productTypeId; }
-    public BigDecimal getInitialBalance() { return initialBalance; }
-    public boolean isExemptGmf() { return exemptGmf; }
+    public Long getClientId() {
+        return clientId;
+    }
+    public Long getProductTypeId() {
+        return productTypeId;
+    }
+    public BigDecimal getInitialBalance() {
+        return initialBalance;
+    }
+    public boolean isExemptGmf() {
+        return exemptGmf;
+    }
 }

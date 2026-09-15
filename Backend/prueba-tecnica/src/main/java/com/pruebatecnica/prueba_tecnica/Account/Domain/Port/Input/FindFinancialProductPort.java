@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface FindFinancialProductPort extends FindUseCase<FinancialProduct, Long> {
     FinancialProduct getByAccountNumber(String accountNumber);
+
     List<FinancialProduct> getByClientId(Long clientId);
 }
