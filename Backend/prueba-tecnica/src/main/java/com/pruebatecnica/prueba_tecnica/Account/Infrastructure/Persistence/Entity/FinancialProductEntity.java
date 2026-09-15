@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "prodicto_financiero")
+@Table(name = "producto_financiero")
 public class FinancialProductEntity {
 
     @Id
