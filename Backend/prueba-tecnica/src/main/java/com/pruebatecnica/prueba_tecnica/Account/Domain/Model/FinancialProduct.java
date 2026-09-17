@@ -51,9 +51,19 @@ public class FinancialProduct extends AuditableEntity {
         this.productStatus = cancelledStatus;
     }
 
+    //Valida que no se puedan hacer ningun tipo de movimiento si la cuenta esta cancelada
+    private void validateActiveForTransaction() {
+        if (productStatus == null || !ProductStatus.ACTIVE.equalsIgnoreCase(productStatus.getCode())) {
+            throw new IllegalStateException(
+                    "Solo se pueden realizar transacciones sobre cuentas activas. Estado actual: "
+                            + (productStatus != null ? productStatus.getName() : "sin estado"));
+        }
+    }
+
     // Manejo de Movimiento entre cuentas
 
     public Movement debit(BigDecimal amount, MovementType movementType, String description) {
+        validateActiveForTransaction();
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("El monto a debitar debe ser mayor a cero.");
         }
@@ -89,6 +99,7 @@ public class FinancialProduct extends AuditableEntity {
 
 
     public Movement credit(BigDecimal amount, MovementType movementType, String description) {
+        validateActiveForTransaction();
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("El monto a consignar debe ser mayor a cero.");
         }

@@ -3,7 +3,12 @@ package com.pruebatecnica.prueba_tecnica.Transaction.Application.Service;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.MovementType;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Transfer;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.*;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterConsignmentCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterWithdrawalCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterWithdrawalPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.FindTransferPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.RegisterTransferCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.RegisterTransferPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.FinancialProductOperationPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementRepositoryPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementTypeRepositoryPort;
@@ -11,10 +16,11 @@ import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.TransferR
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
-public class TransactionApplicationService implements RegisterConsignmentPort, RegisterWithdrawalPort, RegisterTransferPort {
+public class TransactionApplicationService implements FindTransferPort.RegisterConsignmentPort, RegisterWithdrawalPort, RegisterTransferPort {
 
     private final FinancialProductOperationPort financialProductOperationPort;
     private final MovementRepositoryPort movementRepositoryPort;
@@ -34,6 +40,7 @@ public class TransactionApplicationService implements RegisterConsignmentPort, R
     @Override
     @Transactional
     public Movement execute(RegisterConsignmentCommand command) {
+        validateCommand(command.getProductId(), command.getAmount());
         MovementType movementType = getMovementTypeOrThrow(MovementType.CONSIGNMENT);
         Movement movement = financialProductOperationPort.credit(
                 command.getProductId(), command.getAmount(), movementType, command.getDescription());
@@ -43,6 +50,7 @@ public class TransactionApplicationService implements RegisterConsignmentPort, R
     @Override
     @Transactional
     public Movement execute(RegisterWithdrawalCommand command) {
+        validateCommand(command.getProductId(), command.getAmount());
         MovementType movementType = getMovementTypeOrThrow(MovementType.WITHDRAWAL);
         Movement movement = financialProductOperationPort.debit(
                 command.getProductId(), command.getAmount(), movementType, command.getDescription());
@@ -52,6 +60,8 @@ public class TransactionApplicationService implements RegisterConsignmentPort, R
     @Override
     @Transactional
     public Transfer execute(RegisterTransferCommand command) {
+        validateCommand(command.getOriginProductId(), command.getAmount());
+        validateCommand(command.getDestinationProductId(), command.getAmount());
         validateDifferentProducts(command);
 
         MovementType movementType = getMovementTypeOrThrow(MovementType.TRANSFER);
@@ -79,5 +89,14 @@ public class TransactionApplicationService implements RegisterConsignmentPort, R
         return movementTypeRepositoryPort.findByCode(code)
                 .orElseThrow(() -> new IllegalStateException(
                         "Catálogo de tipos de movimiento no inicializado: falta " + code));
+    }
+
+    private void validateCommand(Long productId, BigDecimal amount) {
+        if (productId == null) {
+            throw new IllegalArgumentException("El producto financiero es obligatorio.");
+        }
+        if (amount == null) {
+            throw new IllegalArgumentException("El monto de la transacción es obligatorio.");
+        }
     }
 }

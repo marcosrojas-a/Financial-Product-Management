@@ -1,13 +1,13 @@
-package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input;
+package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient;
 
 import java.math.BigDecimal;
 
-public class RegisterWithdrawalCommand {
+public class RegisterConsignmentCommand {
     private final Long productId;
     private final BigDecimal amount;
     private final String description;
 
-    public RegisterWithdrawalCommand(Long productId, BigDecimal amount, String description) {
+    public RegisterConsignmentCommand(Long productId, BigDecimal amount, String description) {
         this.productId = productId;
         this.amount = amount;
         this.description = description;

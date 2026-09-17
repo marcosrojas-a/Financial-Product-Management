@@ -1,7 +1,6 @@
-package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input;
+package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
-import com.pruebatecnica.prueba_tecnica.shared.Domain.Port.Input.CreateUseCase;
 
 public interface RegisterWithdrawalPort{
     Movement execute(RegisterWithdrawalCommand command);

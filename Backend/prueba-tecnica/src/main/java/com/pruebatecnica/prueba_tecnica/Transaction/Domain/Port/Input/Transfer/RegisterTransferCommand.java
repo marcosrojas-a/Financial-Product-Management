@@ -1,4 +1,4 @@
-package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input;
+package com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer;
 
 import java.math.BigDecimal;
 
