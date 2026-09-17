@@ -1,12 +1,14 @@
-package com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductType;
+package com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType;
 
-public class UpdateProductTypeCommand {
-
+public class UpdateDocumentTypeCommand {
     private final String code;
     private final String name;
     private final boolean active;
 
-    public UpdateProductTypeCommand(String code, String name, boolean active) {
+    public UpdateDocumentTypeCommand(
+            String code,
+            String name,
+            boolean active) {
 
         this.code = code;
         this.name = name;

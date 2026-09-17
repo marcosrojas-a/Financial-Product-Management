@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Client.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.Client;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.CreateClientCommand;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.FindClientByDocumentPort;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.UpdateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.CreateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.FindClientByDocumentPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.UpdateClientCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.ClientProductsLookupPort;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.ClientRepositoryPort;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.DocumentTypeRepositoryPort;
@@ -12,8 +12,6 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class ClientCrudService implements CrudUseCase<CreateClientCommand, UpdateClientCommand, Client, Long>, FindClientByDocumentPort {

@@ -4,7 +4,7 @@ import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.FinancialProduct;
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductFinancial.CreateFinancialProductCommand;
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductFinancial.FinancialProductCrudPort;
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductFinancial.FindFinancialProductPort;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatus.UpdateProductStatusCommand;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductFinancial.UpdateProductStatusCommand;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Request.FinancialProductRequest;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Response.FinancialProductResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;

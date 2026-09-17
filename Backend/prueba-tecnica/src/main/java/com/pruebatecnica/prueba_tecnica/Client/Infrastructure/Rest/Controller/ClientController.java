@@ -1,16 +1,14 @@
 package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.Client;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.*;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.CreateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.FindClientByDocumentPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.UpdateClientCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Request.ClientRequest;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Response.ClientResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Domain.Port.Input.CrudUseCase;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")

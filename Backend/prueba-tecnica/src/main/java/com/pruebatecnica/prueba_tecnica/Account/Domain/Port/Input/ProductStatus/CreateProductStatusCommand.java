@@ -5,10 +5,7 @@ public class CreateProductStatusCommand {
     private final String name;
     private final boolean active;
 
-    public CreateProductStatusCommand(
-            String code,
-            String name,
-            boolean active) {
+    public CreateProductStatusCommand(String code, String name, boolean active) {
 
         this.code = code;
         this.name = name;
