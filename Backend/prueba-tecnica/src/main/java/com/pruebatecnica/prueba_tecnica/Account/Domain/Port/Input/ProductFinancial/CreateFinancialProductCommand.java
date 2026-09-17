@@ -1,4 +1,4 @@
-package com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input;
+package com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductFinancial;
 
 import java.math.BigDecimal;
 

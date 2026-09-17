@@ -1,7 +1,7 @@
 package com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductType;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductType.ProductTypeCrudPort;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Request.ProductTypeRequest;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Response.ProductTypeResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;

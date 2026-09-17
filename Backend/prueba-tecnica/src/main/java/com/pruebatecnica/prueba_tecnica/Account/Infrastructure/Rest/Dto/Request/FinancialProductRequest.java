@@ -16,10 +16,10 @@ public class FinancialProductRequest {
     public FinancialProductRequest() {
     }
 
+
     public Long getClientId() {
         return clientId;
     }
-
     public void setClientId(Long clientId) {
         this.clientId = clientId;
     }
@@ -27,7 +27,6 @@ public class FinancialProductRequest {
     public Long getProductTypeId() {
         return productTypeId;
     }
-
     public void setProductTypeId(Long productTypeId) {
         this.productTypeId = productTypeId;
     }
@@ -35,7 +34,6 @@ public class FinancialProductRequest {
     public BigDecimal getInitialBalance() {
         return initialBalance;
     }
-
     public void setInitialBalance(BigDecimal initialBalance) {
         this.initialBalance = initialBalance;
     }
@@ -43,7 +41,6 @@ public class FinancialProductRequest {
     public Boolean getExemptGmf() {
         return exemptGmf;
     }
-
     public void setExemptGmf(Boolean exemptGmf) {
         this.exemptGmf = exemptGmf;
     }
@@ -51,7 +48,6 @@ public class FinancialProductRequest {
     public Long getNewStatusId() {
         return newStatusId;
     }
-
     public void setNewStatusId(Long newStatusId) {
         this.newStatusId = newStatusId;
     }
