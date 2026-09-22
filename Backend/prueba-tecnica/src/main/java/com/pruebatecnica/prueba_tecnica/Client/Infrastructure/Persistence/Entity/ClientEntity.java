@@ -52,6 +52,16 @@ public class ClientEntity {
         this.modificationDate = modificationDate;
     }
 
+    @PrePersist
+    protected void onCreate() {
+        this.creationDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.modificationDate = LocalDateTime.now();
+    }
+
     public Long getId() { return id; }
     public Long getDocumentTypeId() { return documentTypeId; }
     public String getDocumentNumber() { return documentNumber; }
