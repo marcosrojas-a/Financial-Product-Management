@@ -175,7 +175,6 @@ public class FinancialProductService implements FinancialProductCrudPort, FindFi
 
 
     // BUSCAR TODA LA LISTA
-    // =========================================================
 
     @Override
     public List<FinancialProduct> getAll() {
