@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.MovementType;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.CreateMovementTypeCommand;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.MovementTypeCrudPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.UpdateMovementTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.CreateMovementTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.MovementTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.UpdateMovementTypeCommand;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Request.MovementTypeRequest;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Response.MovementTypeResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;

@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Account.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductType;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductType.CreateProductTypeCommand;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductType.ProductTypeCrudPort;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductType.UpdateProductTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductTypeInputs.CreateProductTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductTypeInputs.ProductTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductTypeInputs.UpdateProductTypeCommand;
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Output.ProductTypeRepositoryPort;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

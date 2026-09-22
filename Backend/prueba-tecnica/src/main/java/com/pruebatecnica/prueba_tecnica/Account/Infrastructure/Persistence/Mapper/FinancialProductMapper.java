@@ -6,7 +6,9 @@ import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductType;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Entity.FinancialProductEntity;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Repository.ProductStatusJpaRepository;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Repository.ProductTypeJpaRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FinancialProductMapper {
     private final ProductTypeJpaRepository  productTypeJpaRepository;
     private final ProductStatusJpaRepository productStatusJpaRepository;

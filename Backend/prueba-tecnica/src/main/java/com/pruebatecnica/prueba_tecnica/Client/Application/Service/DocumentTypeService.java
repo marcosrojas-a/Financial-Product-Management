@@ -1,14 +1,16 @@
 package com.pruebatecnica.prueba_tecnica.Client.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.DocumentType;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.CreateDocumentTypeCommand;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.DocumentTypeCrudPort;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.UpdateDocumentTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.CreateDocumentTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.DocumentTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.UpdateDocumentTypeCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.DocumentTypeRepositoryPort;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DocumentTypeService implements DocumentTypeCrudPort {
 
     private final DocumentTypeRepositoryPort documentTypeRepositoryPort;

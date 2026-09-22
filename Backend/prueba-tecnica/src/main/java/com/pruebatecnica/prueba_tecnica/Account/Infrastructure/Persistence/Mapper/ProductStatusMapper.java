@@ -1,10 +1,10 @@
 package com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Mapper;
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductStatus;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductType;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Entity.ProductStatusEntity;
-import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Entity.ProductTypeEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductStatusMapper {
     public  static ProductStatus toDomain(ProductStatusEntity entity){
         if (entity == null)

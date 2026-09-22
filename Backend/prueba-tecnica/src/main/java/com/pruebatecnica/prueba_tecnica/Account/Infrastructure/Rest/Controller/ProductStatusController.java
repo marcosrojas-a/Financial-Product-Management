@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductStatus;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatus.CreateProductStatusCommand;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatus.ProductStatusCrudPort;
-import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatus.UpdateProductStatusCatalogCommand;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatusInputs.CreateProductStatusCommand;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatusInputs.ProductStatusCrudPort;
+import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Input.ProductStatusInputs.UpdateProductStatusCatalogCommand;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Request.ProductStatusRequest;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Rest.Dto.Response.ProductStatusResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;

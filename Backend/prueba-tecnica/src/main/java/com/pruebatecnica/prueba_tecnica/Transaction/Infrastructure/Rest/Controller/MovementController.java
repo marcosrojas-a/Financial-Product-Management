@@ -2,13 +2,13 @@ package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Control
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Transfer;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.FindMovementPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterConsignmentCommand;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterWithdrawalCommand;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.RegisterWithdrawalPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.FindTransferPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.RegisterTransferCommand;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.RegisterTransferPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.FindMovementPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.RegisterConsignmentCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.RegisterWithdrawalCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.RegisterWithdrawalPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.TransferInputs.FindTransferPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.TransferInputs.RegisterTransferCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.TransferInputs.RegisterTransferPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Request.ConsignmentRequest;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Request.TransferRequest;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Request.WithdrawalRequest;

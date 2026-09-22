@@ -1,11 +1,13 @@
 package com.pruebatecnica.prueba_tecnica.Transaction.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Transfer;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.FindTransferPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.TransferInputs.FindTransferPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.TransferRepositoryPort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TransferQueryService implements FindTransferPort {
 
     private final TransferRepositoryPort transferRepositoryPort;

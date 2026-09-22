@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.Client;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.CreateClientCommand;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.FindClientByDocumentPort;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.UpdateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.CreateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.FindClientByDocumentPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.UpdateClientCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Request.ClientRequest;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Response.ClientResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Domain.Port.Input.CrudUseCase;

@@ -1,7 +1,7 @@
 package com.pruebatecnica.prueba_tecnica.Transaction.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Movement;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.FindMovementPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.FindMovementPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementRepositoryPort;
 import org.springframework.stereotype.Service;
 

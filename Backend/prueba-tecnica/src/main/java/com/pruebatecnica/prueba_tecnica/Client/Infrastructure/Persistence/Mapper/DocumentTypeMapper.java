@@ -2,7 +2,9 @@ package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Persistence.Mappe
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.DocumentType;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Persistence.Entity.DocumentTypeEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DocumentTypeMapper {
     public  static DocumentType toDomain(DocumentTypeEntity entity){
         if (entity == null)

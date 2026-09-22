@@ -2,7 +2,9 @@ package com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Mapp
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Model.ProductType;
 import com.pruebatecnica.prueba_tecnica.Account.Infrastructure.Persistence.Entity.ProductTypeEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProductTypeMapper {
     public  static ProductType toDomain(ProductTypeEntity entity){
         if (entity == null)

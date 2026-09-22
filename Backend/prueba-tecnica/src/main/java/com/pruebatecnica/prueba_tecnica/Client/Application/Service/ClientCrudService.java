@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Client.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.Client;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.CreateClientCommand;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.FindClientByDocumentPort;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.Client.UpdateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.CreateClientCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.FindClientByDocumentPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.ClientInputs.UpdateClientCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.ClientProductsLookupPort;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.ClientRepositoryPort;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.DocumentTypeRepositoryPort;

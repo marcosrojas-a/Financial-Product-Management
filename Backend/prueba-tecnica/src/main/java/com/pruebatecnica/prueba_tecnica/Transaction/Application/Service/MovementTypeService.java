@@ -1,14 +1,16 @@
 package com.pruebatecnica.prueba_tecnica.Transaction.Application.Service;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.MovementType;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.CreateMovementTypeCommand;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.MovementTypeCrudPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientType.UpdateMovementTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.CreateMovementTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.MovementTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovientTypeInputs.UpdateMovementTypeCommand;
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Output.MovementTypeRepositoryPort;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class MovementTypeService implements MovementTypeCrudPort {
 
     private final MovementTypeRepositoryPort movementTypeRepositoryPort;

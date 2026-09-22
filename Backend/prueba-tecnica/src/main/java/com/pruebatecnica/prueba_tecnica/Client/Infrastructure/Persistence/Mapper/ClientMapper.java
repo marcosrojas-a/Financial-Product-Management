@@ -2,7 +2,9 @@ package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Persistence.Mappe
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.Client;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Persistence.Entity.ClientEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClientMapper {
     public static Client toDomain(ClientEntity entity){
         if(entity == null)

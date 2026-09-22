@@ -1,8 +1,8 @@
 package com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Model.Transfer;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Movimient.FindMovementPort;
-import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.Transfer.FindTransferPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.MovimientInputs.FindMovementPort;
+import com.pruebatecnica.prueba_tecnica.Transaction.Domain.Port.Input.TransferInputs.FindTransferPort;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Response.MovementResponse;
 import com.pruebatecnica.prueba_tecnica.Transaction.Infrastructure.Rest.Dto.Response.TransferResponse;
 import org.springframework.web.bind.annotation.*;

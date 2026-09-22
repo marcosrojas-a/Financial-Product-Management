@@ -2,7 +2,9 @@ package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Persistence.Adapt
 
 import com.pruebatecnica.prueba_tecnica.Account.Domain.Port.Output.ClientExistenceLookupPort;
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output.ClientRepositoryPort;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ClientExistenceLookupAdapter implements ClientExistenceLookupPort {
 
     private final ClientRepositoryPort clientRepositoryPort;

@@ -1,9 +1,9 @@
 package com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Controller;
 
 import com.pruebatecnica.prueba_tecnica.Client.Domain.Model.DocumentType;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.CreateDocumentTypeCommand;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.DocumentTypeCrudPort;
-import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentType.UpdateDocumentTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.CreateDocumentTypeCommand;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.DocumentTypeCrudPort;
+import com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Input.DocumentTypeInputs.UpdateDocumentTypeCommand;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Request.DocumentTypeRequest;
 import com.pruebatecnica.prueba_tecnica.Client.Infrastructure.Rest.Dto.Response.DocumentTypeResponse;
 import com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Controller.AbstractCrudController;
