@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-grid">
+    @for (field of fields; track field.key) {
+      <div class="form-group" [class.full-width]="field.full || field.type === 'textarea'">
+        <label [attr.for]="field.key">{{ field.label }}</label>
+
+        @switch (field.type) {
+          @case ('select') {
+            <select
+              [id]="field.key"
+              [formControlName]="field.key"
+            >
+              <option value="" disabled selected>Seleccione...</option>
+              @for (opt of field.options; track opt.value) {
+                <option [ngValue]="opt.value">{{ opt.label }}</option>
+              }
+            </select>
+          }
+          @case ('checkbox') {
+            <div class="checkbox-wrapper">
+              <input type="checkbox" [id]="field.key" [formControlName]="field.key" />
+              <span>{{ field.label }}</span>
+            </div>
+          }
+          @case ('textarea') {
+            <textarea
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+              rows="3"
+            ></textarea>
+          }
+          @case ('number') {
+            <input
+              type="number"
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+              [min]="field.min ?? 0"
+              [step]="field.step ?? '0.01'"
+            />
+          }
+          @default {
+            <input
+              [type]="field.type"
+              [id]="field.key"
+              [formControlName]="field.key"
+              [placeholder]="field.placeholder"
+            />
+          }
+        }
+
+        @if (isInvalid(field.key)) {
+          <span class="error">Este campo es obligatorio</span>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn-submit">{{ submitLabel }}</button>
+    <button type="button" class="btn-cancel" (click)="onReset()">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+<div class="accounts-page">
+  <div class="page-header">
+    <h1>Cuentas</h1>
+  </div>
+
+  <app-generic-table
+    [columns]="columns"
+    [data]="products"
+    [actions]="actions"
+    [isLoading]="isLoading"
+    emptyMessage="No hay cuentas registradas"
+    (rowAction)="onRowAction($event)"
+  ></app-generic-table>
+</div>

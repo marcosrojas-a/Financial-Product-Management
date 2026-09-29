@@ -1,0 +1,52 @@
+<table class="data-table" *ngIf="!isLoading">
+  <thead>
+    <tr>
+      <th *ngFor="let col of columns">{{ col.label }}</th>
+      <th *ngIf="actions.length" class="actions-header">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data; trackBy: trackByIdx">
+      <td *ngFor="let col of columns">
+        @switch (col.type) {
+          @case ('currency') {
+            {{ row[col.key] | currency:'COP':'symbol':'1.2-2':'es-CO' }}
+          }
+          @case ('date') {
+            {{ row[col.key] | date:'shortDate':'es-CO' }}
+          }
+          @case ('datetime') {
+            {{ row[col.key] | date:'short':'es-CO' }}
+          }
+          @case ('boolean') {
+            <span [class]="row[col.key] ? 'badge-active' : 'badge-inactive'">
+              {{ row[col.key] ? 'Sí' : 'No' }}
+            </span>
+          }
+          @default {
+            {{ row[col.key] }}
+          }
+        }
+      </td>
+      <td *ngIf="actions.length" class="actions-cell">
+        <button
+          *ngFor="let act of actions"
+          class="action-btn"
+          [ngClass]="'btn-' + (act.color || 'primary')"
+          (click)="onAction(act.action, row)"
+          [title]="act.label"
+        >
+          {{ act.icon }}
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="isLoading" class="loading-state">
+  <p>Cargando...</p>
+</div>
+
+<div *ngIf="!isLoading && data.length === 0" class="empty-state">
+  {{ emptyMessage }}
+</div>

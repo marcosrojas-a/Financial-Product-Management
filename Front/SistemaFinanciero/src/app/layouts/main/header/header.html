@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="header-left">
+    <span class="logo">🏦</span>
+    <h1 class="title">{{ title }}</h1>
+  </div>
+
+  <nav class="nav-menu">
+    <a
+      *ngFor="let item of menuItems"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-link"
+      title="{{ item.label }}"
+    >
+       <span class="material-symbols-outlined">
+        {{ item.icon }}
+       </span>
+      <span class="nav-label">{{ item.label }}</span>
+    </a>
+  </nav>
+</header>

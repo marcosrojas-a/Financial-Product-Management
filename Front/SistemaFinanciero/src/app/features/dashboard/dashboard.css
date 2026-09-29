@@ -1,0 +1,93 @@
+.dashboard {
+  padding: 20px 0;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.card-icon {
+  font-size: 32px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1976d2;
+}
+
+.card-label {
+  font-size: 13px;
+  color: #757575;
+}
+
+.recent-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #424242;
+}
+
+.movements-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.movements-table th,
+.movements-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.movements-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #555;
+}
+
+.movements-table .amount {
+  font-weight: 600;
+}
+
+.movements-table .empty {
+  text-align: center;
+  color: #999;
+  padding: 20px;
+}
+
+.loading {
+  padding: 40px;
+  text-align: center;
+  color: #757575;
+}

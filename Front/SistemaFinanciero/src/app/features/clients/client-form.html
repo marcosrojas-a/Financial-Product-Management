@@ -1,0 +1,11 @@
+<div class="client-form">
+  <h2>{{ client ? 'Editar Cliente' : 'Crear Cliente' }}</h2>
+
+  <app-generic-form
+    [form]="form"
+    [fields]="fields"
+    [submitLabel]="client ? 'Actualizar' : 'Crear'"
+    (formSubmit)="onSave($event)"
+    (cancel)="onCancel()"
+  ></app-generic-form>
+</div>

@@ -1,0 +1,6 @@
+@if (visible && currentNotification) {
+  <div class="snackbar" [ngClass]="currentNotification.type">
+    <span class="message">{{ currentNotification.message }}</span>
+    <button class="close" (click)="show(null)">✕</button>
+  </div>
+}
