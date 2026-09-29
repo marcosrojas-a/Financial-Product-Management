@@ -1,22 +1,16 @@
 <header class="header">
-  <div class="header-left">
-    <span class="logo">🏦</span>
-    <h1 class="title">{{ title }}</h1>
+  <div class="brand">
+    <div class="brand-icon">
+      <span class="material-symbols-outlined">verified_user</span>
+    </div>
+    <div class="brand-text">
+      <span class="brand-name">{{ appName }}</span>
+      <span class="brand-subtitle">{{ appSubtitle }}</span>
+    </div>
   </div>
 
-  <nav class="nav-menu">
-    <a
-      *ngFor="let item of menuItems"
-      [routerLink]="item.route"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-      class="nav-link"
-      title="{{ item.label }}"
-    >
-       <span class="material-symbols-outlined">
-        {{ item.icon }}
-       </span>
-      <span class="nav-label">{{ item.label }}</span>
-    </a>
-  </nav>
+  <div class="page-info">
+    <span class="page-date">{{ today }}</span>
+    <h1 class="page-title">{{ pageTitle }}</h1>
+  </div>
 </header>

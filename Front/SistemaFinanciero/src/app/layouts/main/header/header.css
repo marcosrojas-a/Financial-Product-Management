@@ -1,58 +1,119 @@
+:host {
+  --teal: #16667f;
+  --teal-soft: rgba(22, 102, 127, 0.1);
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+}
+
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #1976d2;
-  color: #fff;
-  padding: 0 24px;
-  height: 64px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 96px;
+  background-color: #fff;
+  border-bottom: 1px solid var(--border);
 }
 
-.header-left {
+/* Bloque de marca */
+.brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  width: 310px;
+  height: 100%;
+  padding: 0 24px;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
 }
 
-.logo {
-  font-size: 24px;
+.brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--teal);
+  color: #fff;
 }
 
-.title {
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.brand-name {
   font-size: 18px;
-  font-weight: 600;
-  margin: 0;
+  font-weight: 700;
+  color: var(--text);
 }
 
+.brand-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Fecha y título de página */
+.page-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 48px;
+  flex: 1;
+}
+
+.page-date {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Navegación */
 .nav-menu {
   display: flex;
   gap: 4px;
+  padding: 0 24px;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  color: rgba(255, 255, 255, 0.85);
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--muted);
   text-decoration: none;
   font-size: 14px;
-  transition: all 0.2s;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: #f1f5f9;
+  color: var(--text);
 }
 
 .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background-color: var(--teal-soft);
+  color: var(--teal);
   font-weight: 600;
 }
 
-.nav-icon {
-  font-size: 16px;
+.nav-link .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (max-width: 900px) {
+  .brand { width: auto; }
+  .brand-text,
+  .nav-label { display: none; }
+  .page-info { padding-left: 24px; }
 }

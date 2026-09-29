@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 export interface TableColumn {
   key: string;
   label: string;
-  type?: 'text' | 'number' | 'currency' | 'date' | 'datetime' | 'boolean';
+  type?: 'text' | 'number' | 'currency' | 'date' | 'datetime' | 'boolean' | 'avatar';
+  subKey?: string; // texto secundario para type 'avatar'
 }
 
 export interface TableAction {
   label: string;
-  icon: string;
+  icon?: string;   // emoji o texto (compatibilidad)
+  symbol?: string; // nombre de Material Symbols, tiene prioridad sobre icon
   action: string;
   color?: 'primary' | 'warn' | 'accent';
 }
@@ -35,5 +37,11 @@ export class GenericTableComponent {
 
   onAction(action: string, row: any): void {
     this.rowAction.emit({ action, row });
+  }
+
+  getInitials(value: string): string {
+    if (!value) return '';
+    const parts = String(value).trim().split(/\s+/);
+    return (parts[0][0] + (parts[1]?.[0] ?? '')).toUpperCase();
   }
 }

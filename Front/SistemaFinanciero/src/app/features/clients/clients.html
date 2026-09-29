@@ -1,17 +1,45 @@
 <div class="clients-page">
-  <div class="page-header">
-    <h1>Clientes</h1>
-    <button class="btn-primary" (click)="onCreate()">Crear Cliente</button>
-  </div>
+  <header class="page-header">
+    <div>
+      <span class="eyebrow">Gestión de clientes</span>
+      <h1>Clientes registrados</h1>
+      <p class="page-subtitle">Administra la información de tus clientes.</p>
+    </div>
+    <button class="btn-primary" (click)="onCreate()">
+      <span class="material-symbols-outlined">add</span>
+      Nuevo cliente
+    </button>
+  </header>
 
-  <app-generic-table
-    [columns]="columns"
-    [data]="clients"
-    [actions]="actions"
-    [isLoading]="isLoading"
-    emptyMessage="No hay clientes registrados"
-    (rowAction)="onRowAction($event)"
-  ></app-generic-table>
+  <section class="list-card">
+    <div class="list-header">
+      <div>
+        <h2>Listado de clientes</h2>
+        <span class="list-count">
+          {{ filteredClients.length }}
+          {{ filteredClients.length === 1 ? 'registro encontrado' : 'registros encontrados' }}
+        </span>
+      </div>
+
+      <div class="search-box">
+        <span class="material-symbols-outlined">search</span>
+        <input
+          type="text"
+          placeholder="Buscar cliente..."
+          (input)="onSearch($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <app-generic-table
+      [columns]="columns"
+      [data]="filteredClients"
+      [actions]="actions"
+      [isLoading]="isLoading"
+      emptyMessage="No se encontraron clientes"
+      (rowAction)="onRowAction($event)"
+    ></app-generic-table>
+  </section>
 
   <div class="form-overlay" *ngIf="showForm">
     <div class="form-modal">

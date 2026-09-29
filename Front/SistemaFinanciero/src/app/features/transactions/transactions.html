@@ -1,25 +1,67 @@
 <div class="transactions-page">
-  <div class="page-header">
-    <h1>Transacciones</h1>
-    <button class="btn-primary" (click)="onCreate()">Nueva Transacción</button>
-  </div>
-
-  <app-generic-table
-    [columns]="columns"
-    [data]="movements"
-    [actions]="actions"
-    [isLoading]="isLoading"
-    emptyMessage="No hay movimientos registrados"
-    (rowAction)="onRowAction($event)"
-  ></app-generic-table>
-
-  <div class="form-overlay" *ngIf="showForm">
-    <div class="form-modal">
-      <app-transaction-form
-        (submit)="onFormSubmit($event)"
-        (cancel)="onFormCancel()"
-      ></app-transaction-form>
+  <header class="page-header">
+    <div>
+      <span class="eyebrow">Consulta de movimientos</span>
+      <h1>Historial de transacciones</h1>
+      <p class="page-subtitle">Consulta todas las operaciones realizadas en tus productos.</p>
     </div>
-    <div class="overlay-backdrop" (click)="onFormCancel()"></div>
-  </div>
+    <button class="btn-primary" (click)="onCreate()">
+      <span class="material-symbols-outlined">add</span>
+      Nueva transacción
+    </button>
+  </header>
+
+  <section class="list-card">
+    <div class="list-header">
+      <h2>Todos los movimientos</h2>
+      <span class="list-count">
+        {{ movements.length }}
+        {{ movements.length === 1 ? 'movimiento registrado' : 'movimientos registrados' }}
+      </span>
+    </div>
+
+    @if (isLoading) {
+      <div class="state-message">Cargando movimientos...</div>
+    } @else if (movements.length === 0) {
+      <div class="state-message">No hay movimientos registrados</div>
+    } @else {
+      <div class="table-scroll">
+        <table class="movements-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Monto</th>
+              <th>Saldo anterior</th>
+              <th>Saldo nuevo</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (m of movements; track $index) {
+              <tr>
+                <td class="date">{{ formatDateTime(m.movementDate) }}</td>
+                <td class="type">{{ m.movementType }}</td>
+                <td class="amount" [class.credit]="isCredit(m)" [class.debit]="!isCredit(m)">
+                  {{ signedAmount(m) }}
+                </td>
+                <td class="previous">{{ formatCurrency(m.previousBalance) }}</td>
+                <td class="new-balance">{{ formatCurrency(m.newBalance) }}</td>
+                <td>{{ m.description || '-' }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  </section>
+
+  @if (showForm) {
+    <div class="form-overlay">
+      <div class="form-modal" role="dialog" aria-modal="true" aria-label="Nueva transacción">
+        <app-transaction-form (formSubmit)="onFormSubmit($event)"></app-transaction-form>
+      </div>
+      <div class="overlay-backdrop" (click)="onFormCancel()"></div>
+    </div>
+  }
 </div>

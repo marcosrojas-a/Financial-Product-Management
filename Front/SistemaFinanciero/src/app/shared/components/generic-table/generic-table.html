@@ -13,15 +13,24 @@
             {{ row[col.key] | currency:'COP':'symbol':'1.2-2':'es-CO' }}
           }
           @case ('date') {
-            {{ row[col.key] | date:'shortDate':'es-CO' }}
+            {{ row[col.key] | date:'dd/MM/yyyy' }}
           }
           @case ('datetime') {
-            {{ row[col.key] | date:'short':'es-CO' }}
+            {{ row[col.key] | date:'dd/MM/yyyy, HH:mm' }}
           }
           @case ('boolean') {
             <span [class]="row[col.key] ? 'badge-active' : 'badge-inactive'">
               {{ row[col.key] ? 'Sí' : 'No' }}
             </span>
+          }
+          @case ('avatar') {
+            <div class="avatar-cell">
+              <span class="avatar">{{ getInitials(row[col.key]) }}</span>
+              <div class="avatar-text">
+                <span class="avatar-title">{{ row[col.key] }}</span>
+                <span class="avatar-sub" *ngIf="col.subKey">{{ row[col.subKey] }}</span>
+              </div>
+            </div>
           }
           @default {
             {{ row[col.key] }}
@@ -36,7 +45,8 @@
           (click)="onAction(act.action, row)"
           [title]="act.label"
         >
-          {{ act.icon }}
+          <span *ngIf="act.symbol; else textIcon" class="material-symbols-outlined">{{ act.symbol }}</span>
+          <ng-template #textIcon>{{ act.icon }}</ng-template>
         </button>
       </td>
     </tr>

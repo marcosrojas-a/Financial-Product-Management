@@ -1,14 +1,73 @@
 <div class="accounts-page">
-  <div class="page-header">
-    <h1>Cuentas</h1>
+  <header class="page-header">
+    <div>
+      <span class="eyebrow">Portafolio</span>
+      <h1>Productos financieros</h1>
+      <p class="page-subtitle">Consulta y administra las cuentas registradas.</p>
+    </div>
+    <button class="btn-primary" (click)="onCreate()">
+      <span class="material-symbols-outlined">add</span>
+      Crear cuenta
+    </button>
+  </header>
+
+  <div *ngIf="isLoading" class="state-message">Cargando cuentas...</div>
+
+  <div *ngIf="!isLoading && products.length === 0" class="state-message">
+    No hay cuentas registradas
   </div>
 
-  <app-generic-table
-    [columns]="columns"
-    [data]="products"
-    [actions]="actions"
-    [isLoading]="isLoading"
-    emptyMessage="No hay cuentas registradas"
-    (rowAction)="onRowAction($event)"
-  ></app-generic-table>
+  <section class="accounts-grid" *ngIf="!isLoading && products.length > 0">
+    <article class="account-card" *ngFor="let p of products; trackBy: trackById">
+      <div class="card-top">
+        <div class="card-icon">
+          <span class="material-symbols-outlined">account_balance_wallet</span>
+        </div>
+        <span class="status-badge" [class.status-cancelled]="!isActive(p)">
+          {{ p.productStatus }}
+        </span>
+      </div>
+
+      <div class="card-body">
+        <span class="card-type">{{ p.productType }}</span>
+        <span class="card-number">{{ formatAccountNumber(p.accountNumber) }}</span>
+        <span class="card-client">{{ p.clientName }}</span>
+      </div>
+
+      <div class="card-footer">
+        <div class="balance-block">
+          <span class="balance-label">Saldo disponible</span>
+          <span class="balance-value">{{ formatCurrency(p.availableBalance) }}</span>
+        </div>
+
+        <div class="meta-row">
+          <span class="meta-item">
+            Saldo total: <strong>{{ formatCurrency(p.balance) }}</strong>
+          </span>
+          <span class="gmf-badge" *ngIf="p.exemptGmf">Exenta GMF</span>
+        </div>
+
+        <button
+          *ngIf="isActive(p)"
+          class="btn-cancel"
+          (click)="onCancel(p)"
+        >
+          <span class="material-symbols-outlined">block</span>
+          Cancelar cuenta
+        </button>
+      </div>
+    </article>
+  </section>
+
+  <div class="form-overlay" *ngIf="showForm">
+    <div class="form-modal">
+      <app-account-form
+        [productTypes]="productTypes"
+        [clients]="clients"
+        (save)="onFormSubmit($event)"
+        (cancel)="onFormCancel()"
+      ></app-account-form>
+    </div>
+    <div class="overlay-backdrop" (click)="onFormCancel()"></div>
+  </div>
 </div>

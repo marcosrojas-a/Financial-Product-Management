@@ -1,0 +1,11 @@
+<div class="account-form">
+  <h2>Crear Cuenta</h2>
+
+  <app-generic-form
+    [form]="form"
+    [fields]="fields"
+    submitLabel="Crear"
+    (formSubmit)="onSave($event)"
+    (cancel)="onCancel()"
+  ></app-generic-form>
+</div>
