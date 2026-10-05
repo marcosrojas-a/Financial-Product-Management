@@ -23,7 +23,9 @@
         <div class="card-icon">
           <span class="material-symbols-outlined">account_balance_wallet</span>
         </div>
-        <span class="status-badge" [class.status-cancelled]="!isActive(p)">
+        <span class="status-badge"
+              [class.status-cancelled]="p.productStatus === 'Cancelada'"
+              [class.status-inactive]="p.productStatus === 'Inactiva'">
           {{ p.productStatus }}
         </span>
       </div>
@@ -47,14 +49,33 @@
           <span class="gmf-badge" *ngIf="p.exemptGmf">Exenta GMF</span>
         </div>
 
-        <button
-          *ngIf="isActive(p)"
-          class="btn-cancel"
-          (click)="onCancel(p)"
-        >
-          <span class="material-symbols-outlined">block</span>
-          Cancelar cuenta
-        </button>
+        <div class="card-actions" *ngIf="isActive(p) || isInactive(p)">
+          <button
+            *ngIf="isActive(p)"
+            class="btn-secondary"
+            (click)="onSetStatus(p, getInactiveStatus()!)"
+          >
+            <span class="material-symbols-outlined">pause</span>
+            Inactivar cuenta
+          </button>
+
+          <button
+            *ngIf="isInactive(p)"
+            class="btn-secondary"
+            (click)="onSetStatus(p, getActiveStatus()!)"
+          >
+            <span class="material-symbols-outlined">play_arrow</span>
+            Reactivar cuenta
+          </button>
+
+          <button
+            class="btn-cancel"
+            (click)="onCancel(p)"
+          >
+            <span class="material-symbols-outlined">block</span>
+            Cancelar cuenta
+          </button>
+        </div>
       </div>
     </article>
   </section>

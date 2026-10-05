@@ -130,6 +130,34 @@ export class AccountsComponent implements OnInit {
     return this.statuses.find((s) => s.code === 'CANCELADA');
   }
 
+  getInactiveStatus(): ProductStatus | undefined {
+    return this.statuses.find((s) => s.code === 'INACTIVA');
+  }
+
+  getActiveStatus(): ProductStatus | undefined {
+    return this.statuses.find((s) => s.code === 'ACTIVA');
+  }
+
+  onSetStatus(row: any, status: ProductStatus): void {
+    const product = row as FinancialProduct;
+    const request: FinancialProductRequest = { newStatusId: status.id };
+    this.apiService.put<FinancialProduct>(`/api/productos-financieros/${product.id}`, request).subscribe({
+      next: (updated) => {
+        const idx = this.products.findIndex((p) => p.id === updated.id);
+        if (idx >= 0) {
+          this.products[idx] = { ...updated, clientName: this.getClientName(updated.clientId) };
+        }
+        this.notificationService.success(`Cuenta ${status.name.toLowerCase()} correctamente`);
+      },
+      error: (error) => {
+        const message =
+          error.error?.message ??
+          'No se pudo actualizar el estado de la cuenta';
+        this.notificationService.error(message);
+      }
+    });
+  }
+
   onCancel(row: any): void {
     const product = row as FinancialProduct;
     const cancelledStatus = this.getCancelledStatus();
@@ -140,15 +168,26 @@ export class AccountsComponent implements OnInit {
     }
 
     if (confirm('¿Está seguro de cancelar esta cuenta? Solo se pueden cancelar cuentas con saldo $0.')) {
-      const request: FinancialProductRequest = { newStatusId: cancelledStatus.id };
-      this.apiService.put<FinancialProduct>(`/api/productos-financieros/${product.id}`, request).subscribe({
-        next: (updated) => {
-          const idx = this.products.findIndex((p) => p.id === updated.id);
+      this.apiService.delete<void>(`/api/productos-financieros/${product.id}`).subscribe({
+        next: () => {
+          const idx = this.products.findIndex((p) => p.id === product.id);
           if (idx >= 0) {
-            this.products[idx] = { ...updated, clientName: this.getClientName(updated.clientId) };
+            this.products[idx] = {
+              ...this.products[idx],
+              productStatus: cancelledStatus.name,
+              productStatusId: cancelledStatus.id,
+            };
           }
           this.notificationService.success('Cuenta cancelada correctamente');
         },
+
+        error: (error) => {
+          const message =
+            error.error?.message ??
+            'No se pudo cancelar la cuenta';
+
+          this.notificationService.error(message);
+        }
       });
     }
   }
@@ -156,6 +195,10 @@ export class AccountsComponent implements OnInit {
   // Helpers de la vista
   isActive(product: FinancialProduct): boolean {
     return product.productStatus?.toLowerCase() === 'activa';
+  }
+
+  isInactive(product: FinancialProduct): boolean {
+    return product.productStatus?.toLowerCase() === 'inactiva';
   }
 
   formatAccountNumber(value: string | number): string {
