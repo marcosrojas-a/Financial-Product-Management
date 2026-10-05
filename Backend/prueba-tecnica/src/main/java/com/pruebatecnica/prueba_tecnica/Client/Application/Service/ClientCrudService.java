@@ -64,7 +64,7 @@ public class ClientCrudService implements CrudUseCase<CreateClientCommand, Updat
         public void delete(Long id) {
             getClientOrThrow(id);
 
-            if (clientProductsLookupPort.hasActiveProducts(id)) {
+            if (clientProductsLookupPort.hasProducts(id)) {
                 throw new IllegalStateException(
                         "No se puede eliminar el cliente: tiene productos financieros asociados.");
             }

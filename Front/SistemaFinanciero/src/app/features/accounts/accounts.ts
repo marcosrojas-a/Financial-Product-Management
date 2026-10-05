@@ -32,6 +32,7 @@ export class AccountsComponent implements OnInit {
   statuses: ProductStatus[] = [];
   isLoading = false;
   showForm = false;
+  showAllAccounts = false;
 
   ngOnInit(): void {
     this.loadProducts();
@@ -199,6 +200,25 @@ export class AccountsComponent implements OnInit {
 
   isInactive(product: FinancialProduct): boolean {
     return product.productStatus?.toLowerCase() === 'inactiva';
+  }
+
+  isCancelled(product: FinancialProduct): boolean {
+    return product.productStatus?.toLowerCase() === 'cancelada';
+  }
+
+  get filteredProducts(): ProductWithClient[] {
+    if (this.showAllAccounts) {
+      return this.products;
+    }
+    return this.products.filter((p) => !this.isCancelled(p));
+  }
+
+  get cancelledCount(): number {
+    return this.products.filter((p) => this.isCancelled(p)).length;
+  }
+
+  toggleShowAll(): void {
+    this.showAllAccounts = !this.showAllAccounts;
   }
 
   formatAccountNumber(value: string | number): string {

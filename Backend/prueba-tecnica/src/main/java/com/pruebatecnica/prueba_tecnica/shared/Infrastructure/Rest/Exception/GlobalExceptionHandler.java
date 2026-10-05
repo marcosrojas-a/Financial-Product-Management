@@ -1,6 +1,7 @@
 package com.pruebatecnica.prueba_tecnica.shared.Infrastructure.Rest.Exception;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,6 +23,15 @@ public class GlobalExceptionHandler {
                                                                HttpServletRequest request) {
         return buildResponse(HttpStatus.CONFLICT, ex, request);
     }
+
+    // La base de datos impide la operación por una restricción de integridad.
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ApiErrorResponse> handleDataIntegrityViolation(
+            DataIntegrityViolationException ex, HttpServletRequest request) {
+        return buildResponse( HttpStatus.CONFLICT, new IllegalStateException( "No se puede realizar la operación porque existen registros asociados.", ex ), request );
+    }
+
 
     // Red de seguridad: cualquier otra excepción no controlada
     @ExceptionHandler(Exception.class)

@@ -110,6 +110,11 @@ export class ClientsComponent implements OnInit {
           this.applyFilter();
           this.notificationService.success('Cliente eliminado correctamente');
         },
+
+        error: (error) => { 
+          const message = error?.error?.message ?? 'No se pudo eliminar el cliente.'; 
+          
+          this.notificationService.error(message); },
       });
     }
   }

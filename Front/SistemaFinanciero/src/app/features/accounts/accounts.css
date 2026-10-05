@@ -250,6 +250,46 @@
   color: #dc2626;
 }
 
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: rgba(22, 102, 127, 0.04);
+  border-radius: 12px;
+}
+
+.btn-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn-filter-toggle:hover {
+  background: rgba(22, 102, 127, 0.06);
+  border-color: rgba(22, 102, 127, 0.4);
+  color: var(--teal);
+}
+
+.btn-filter-toggle .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.filter-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
 .state-message {
   padding: 48px;
   text-align: center;

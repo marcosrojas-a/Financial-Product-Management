@@ -13,8 +13,6 @@ public interface FinancialProductJpaRepository extends JpaRepository<FinancialPr
 
     List<FinancialProductEntity> findByClientId(Long clientId);
 
-    @Query("select count(p) > 0 from FinancialProductEntity p " +
-            "where p.clientId = :clientId and p.productStatusId <> :cancelledStatusId")
-    boolean existsActiveByClientId(@Param("clientId") Long clientId,
-                                   @Param("cancelledStatusId") Long cancelledStatusId);
+    boolean existsByClientId(Long clientId);
+
 }

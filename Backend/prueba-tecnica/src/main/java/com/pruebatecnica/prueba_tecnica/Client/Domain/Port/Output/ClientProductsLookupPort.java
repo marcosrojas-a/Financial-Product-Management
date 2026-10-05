@@ -1,7 +1,8 @@
 package com.pruebatecnica.prueba_tecnica.Client.Domain.Port.Output;
 
-// Se usa para cumplir con el requerimiento de evitar la eliminacion
-// de un usuario si aun tiene algun producto vinculado
+// Se usa para evitar la eliminación de un cliente
+// si aún tiene algún producto financiero vinculado.
+
 public interface ClientProductsLookupPort {
-    boolean hasActiveProducts(Long clientId);
+    boolean hasProducts(Long clientId);
 }

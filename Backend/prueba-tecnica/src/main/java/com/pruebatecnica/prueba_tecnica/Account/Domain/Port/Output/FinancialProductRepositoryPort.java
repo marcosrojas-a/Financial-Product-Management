@@ -14,5 +14,5 @@ public interface FinancialProductRepositoryPort extends ReadRepositoryPort<Finan
 
     List<FinancialProduct> findByClientId(Long clientId);
 
-    boolean existsActiveByClientId(Long clientId);
+    boolean existsByClientId(Long clientId);
 }

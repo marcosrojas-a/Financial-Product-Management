@@ -14,7 +14,7 @@ public class ClientProductsLookupAdapter implements ClientProductsLookupPort {
     }
 
     @Override
-    public boolean hasActiveProducts(Long clientId) {
-        return financialProductRepositoryPort.existsActiveByClientId(clientId);
+    public boolean hasProducts(Long clientId) {
+        return financialProductRepositoryPort.existsByClientId(clientId);
     }
 }

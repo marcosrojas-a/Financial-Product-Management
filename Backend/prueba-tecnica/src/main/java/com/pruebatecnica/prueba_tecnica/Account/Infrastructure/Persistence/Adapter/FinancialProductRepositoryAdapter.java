@@ -39,11 +39,8 @@ public class FinancialProductRepositoryAdapter extends AbstractCrudRepositoryAda
     }
 
     @Override
-    public boolean existsActiveByClientId(Long clientId) {
-        Long cancelledStatusId = productStatusJpaRepository.findByCodigo(ProductStatus.CANCELLED)
-                .orElseThrow(() -> new IllegalStateException("Catálogo de estados no inicializado: falta CANCELADA"))
-                .getId();
-        return financialProductJpaRepository.existsActiveByClientId(clientId, cancelledStatusId);
+    public boolean existsByClientId(Long clientId) {
+        return financialProductJpaRepository.existsByClientId(clientId);
     }
 
 }

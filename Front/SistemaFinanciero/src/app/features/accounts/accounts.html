@@ -17,8 +17,25 @@
     No hay cuentas registradas
   </div>
 
-  <section class="accounts-grid" *ngIf="!isLoading && products.length > 0">
-    <article class="account-card" *ngFor="let p of products; trackBy: trackById">
+   <div *ngIf="!isLoading && products.length > 0" class="filter-bar">
+     <button
+       class="btn-filter-toggle"
+       (click)="toggleShowAll()"
+     >
+       <span class="material-symbols-outlined">{{ showAllAccounts ? 'visibility' : 'visibility_off' }}</span>
+       {{ showAllAccounts ? 'Mostrar solo activas e inactivas' : 'Mostrar todas las cuentas' }}
+     </button>
+      <span *ngIf="!showAllAccounts" class="filter-hint">
+        Se ocultan {{ cancelledCount }} cuenta(s) cancelada(s)
+      </span>
+   </div>
+
+   <div *ngIf="!isLoading && filteredProducts.length === 0 && products.length > 0" class="state-message">
+     No hay cuentas activas o inactivas. Haz clic en "Mostrar todas las cuentas" para ver canceladas.
+   </div>
+
+   <section class="accounts-grid" *ngIf="!isLoading && filteredProducts.length > 0">
+    <article class="account-card" *ngFor="let p of filteredProducts; trackBy: trackById">
       <div class="card-top">
         <div class="card-icon">
           <span class="material-symbols-outlined">account_balance_wallet</span>
